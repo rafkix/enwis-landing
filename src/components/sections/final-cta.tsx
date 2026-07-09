@@ -8,68 +8,102 @@ import { APP_URL } from "@/lib/constants";
 
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[var(--color-deep-900)] via-[var(--color-deep)] to-[var(--color-deep-900)] py-24 lg:py-32">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[var(--color-volt)]/20 blur-[140px]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 right-[8%] h-[320px] w-[320px] rounded-full bg-[var(--color-volt-light)]/15 blur-[120px]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, white 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
+    <section className="py-28" aria-labelledby="cta-heading ">
+      <div className="container-editorial">
+        <div
+          className="relative overflow-hidden rounded-[32px] p-14 text-center lg:p-20"
+          style={{ background: "var(--dark, #18332F)" }}
+        >
+          <div
+            aria-hidden
+            className="pointer-events-none absolute h-[640px] w-[640px] rounded-full blur-[10px]"
+            style={{
+              top: "-200px",
+              left: "20%",
+              opacity: 0.5,
+              background:
+                "radial-gradient(circle, rgba(168,246,45,.35), transparent 65%)",
+            }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute h-[640px] w-[640px] rounded-full blur-[10px]"
+            style={{
+              bottom: "-200px",
+              right: "10%",
+              opacity: 0.4,
+              background:
+                "radial-gradient(circle, rgba(200,255,82,.3), transparent 65%)",
+            }}
+          />
 
-      <div className="container-editorial relative text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto max-w-2xl text-[clamp(2rem,4.5vw,3.25rem)] font-medium leading-[1.1] text-white"
-        >
-          Birinchi imtihoningizni{" "}
-          <span className="text-[var(--color-volt-light)]">bugun</span> yarating
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto mt-4 max-w-lg text-white/60"
-        >
-          Kredit karta talab qilinmaydi. O&apos;qituvchi rejasi butunlay bepul.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-9 flex flex-wrap items-center justify-center gap-4"
-        >
-          <Button variant="primary" size="lg" asChild>
-            <a href={APP_URL} target="_blank" rel="noopener noreferrer">
-              Boshlash <ArrowRight className="h-4 w-4" />
-            </a>
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-[var(--color-volt)]/30 text-white hover:border-[var(--color-volt)]/60 hover:bg-white/5"
-            asChild
-          >
-            <Link href="/contact#demo">
-              <PlayCircle className="h-4 w-4" /> Demo ko&apos;rish
-            </Link>
-          </Button>
-        </motion.div>
+          <div className="relative">
+            <motion.h2
+              id="cta-heading"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="font-bold leading-tight text-white"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)" }}
+            >
+              Baholashni zamonaviylashtirishga tayyormisiz?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="mx-auto mt-5 max-w-[480px]"
+              style={{
+                color: "var(--gray-on-dark, #C7D6D1)",
+                fontSize: "16px",
+              }}
+            >
+              14 kunlik bepul sinov — kredit karta talab qilinmaydi.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.2,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            >
+              <Button
+                size="lg"
+                className="rounded-full px-8 py-3.5 text-[14px] font-semibold"
+                style={{
+                  background: "var(--accent, #A8F62D)",
+                  color: "var(--dark, #18332F)",
+                }}
+                asChild
+              >
+                <a href={APP_URL} target="_blank" rel="noopener noreferrer">
+                  Bepul boshlash <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-full border px-8 py-3.5 text-[14px] font-semibold text-white hover:bg-white/5"
+                style={{ borderColor: "rgba(255,255,255,.25)" }}
+                asChild
+              >
+                <Link href="/demo">
+                  <PlayCircle className="h-4 w-4" /> Demo so&apos;rash
+                </Link>
+              </Button>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

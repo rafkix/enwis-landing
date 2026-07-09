@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   LayoutGrid,
@@ -18,6 +19,18 @@ import {
 } from "lucide-react";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
+
+/* -----------------------------------------------------------------------
+ * Bu componentlar endi MockupFrame ICHIDA ishlatishga mo'ljallangan.
+ * Shuning uchun ularda o'z border/shadow/qattiq balandligi YO'Q —
+ * bularni faqat MockupFrame beradi. Component `h-full` bilan
+ * frame body'sini to'ldiradi.
+ *
+ * Ishlatish:
+ * <MockupFrame maxBodyHeight="380px">
+ *   <TeacherDashboardMockup />
+ * </MockupFrame>
+ * ----------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------- */
 /* Teacher dashboard                                                       */
@@ -64,7 +77,7 @@ const STATUS_STYLE: Record<(typeof RECENT_EXAMS)[number]["status"], string> = {
 
 export function TeacherDashboardMockup() {
   return (
-    <div className="flex h-[380px] overflow-hidden border border-[var(--color-line)] bg-white font-body text-sm shadow-[var(--shadow-soft-md,0_20px_50px_-24px_rgba(17,24,39,0.25))]">
+    <div className="flex min-h-[380px] bg-white font-body text-sm">
       <aside className="hidden w-48 flex-col gap-1 border-r border-[var(--color-line)] bg-[var(--color-mist)] p-3 sm:flex">
         <div className="mb-3 flex items-center gap-2 px-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-deep)] text-xs font-medium text-white">
@@ -98,7 +111,7 @@ export function TeacherDashboardMockup() {
         ))}
       </aside>
 
-      <div className="flex-1 overflow-hidden p-5">
+      <div className="flex-1 p-5">
         <div className="mb-5 flex items-center justify-between">
           <div>
             <p className="font-display text-base font-medium text-[var(--color-ink)]">
@@ -190,8 +203,23 @@ const OPTIONS = [
 export function StudentExamMockup() {
   const progress = (7 / 20) * 100;
 
+  // Live countdown, starting at 14:32
+  const [secondsLeft, setSecondsLeft] = useState(14 * 60 + 32);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSecondsLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const minutes = Math.floor(secondsLeft / 60);
+  const seconds = secondsLeft % 60;
+  const timeLabel = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  const isLowTime = secondsLeft <= 60;
+
   return (
-    <div className="flex h-[380px] flex-col overflow-hidden border border-[var(--color-line)] bg-white font-body text-sm shadow-[var(--shadow-soft-md,0_20px_50px_-24px_rgba(17,24,39,0.25))]">
+    <div className="flex min-h-[380px] flex-col bg-white font-body text-sm">
       <div className="h-1 w-full bg-[var(--color-mist)]">
         <motion.div
           initial={{ width: 0 }}
@@ -201,13 +229,19 @@ export function StudentExamMockup() {
         />
       </div>
 
-      <div className="flex items-center justify-between border-[var(--color-line)] px-5 py-3">
+      <div className="flex items-center justify-between border-b border-[var(--color-line)] px-5 py-3">
         <p className="font-display text-sm font-medium text-[var(--color-ink)]">
           Ingliz tili — B1 nazorat
         </p>
-        <div className="flex items-center gap-1.5 rounded-full bg-[var(--color-mist)] px-3 py-1 text-xs font-medium text-[var(--color-deep)]">
+        <div
+          className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+            isLowTime
+              ? "bg-red-50 text-red-600"
+              : "bg-[var(--color-mist)] text-[var(--color-deep)]"
+          }`}
+        >
           <Clock className="h-3.5 w-3.5" strokeWidth={1.75} />
-          14:32
+          {timeLabel}
         </div>
       </div>
 
@@ -289,7 +323,7 @@ const AVERAGE = Math.round(
 
 export function AnalyticsMockup() {
   return (
-    <div className="flex h-[380px] flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white p-5 font-body text-sm shadow-[var(--shadow-soft-md,0_20px_50px_-24px_rgba(17,24,39,0.25))]">
+    <div className="flex min-h-[380px] flex-col bg-white p-5 font-body text-sm">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <p className="font-display text-base font-medium text-[var(--color-ink)]">
@@ -308,7 +342,7 @@ export function AnalyticsMockup() {
         </div>
       </div>
 
-      <div className="relative mb-5 flex items-end gap-3  border border-[var(--color-line)] bg-white p-4 pt-6">
+      <div className="relative mb-5 flex flex-1 items-end gap-3 rounded-xl border border-[var(--color-line)] bg-white p-4 pt-6">
         <div
           className="pointer-events-none absolute inset-x-4 border-t border-dashed border-[var(--color-slate)]/30"
           style={{ bottom: `calc(1rem + ${AVERAGE}%)` }}
@@ -338,7 +372,7 @@ export function AnalyticsMockup() {
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        <div className="flex items-start gap-2.5 border border-[var(--color-line)] p-3">
+        <div className="flex items-start gap-2.5 rounded-xl border border-[var(--color-line)] p-3">
           <TrendingDown
             className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-slate)]"
             strokeWidth={1.75}

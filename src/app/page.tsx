@@ -13,7 +13,6 @@ import { Pricing } from "@/components/sections/pricing";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
-import { AppTeaserBanner } from "@/components/sections/app-teaser-banner";
 
 export const metadata: Metadata = buildMetadata({
   title: "Enwis — Raqamli imtihon va baholash platformasi",
@@ -38,7 +37,6 @@ export default function HomePage() {
       <Testimonials />
       <Faq />
       <FinalCta />
-      <AppTeaserBanner />
     </>
   );
 }

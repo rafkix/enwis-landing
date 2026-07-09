@@ -4,18 +4,25 @@ interface MockupFrameProps {
   children: React.ReactNode;
   className?: string;
   path?: string;
+  /** Set only if you need to cap the frame's height; body scrolls internally instead of clipping. */
+  maxBodyHeight?: string;
 }
 
 /**
  * Browser-chrome frame used to make dashboard previews read as a real,
  * running product rather than a floating illustration.
  */
-export function MockupFrame({ children, className, path = "app.enwis.uz" }: MockupFrameProps) {
+export function MockupFrame({
+  children,
+  className,
+  path = "app.enwis.uz",
+  maxBodyHeight,
+}: MockupFrameProps) {
   return (
     <div
       className={cn(
         "overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-line)] bg-white shadow-[var(--shadow-soft-lg)]",
-        className
+        className,
       )}
     >
       <div className="flex items-center gap-3 border-b border-[var(--color-line)] bg-[var(--color-mist)] px-4 py-3">
@@ -29,7 +36,12 @@ export function MockupFrame({ children, className, path = "app.enwis.uz" }: Mock
           {path}
         </div>
       </div>
-      <div className="bg-white">{children}</div>
+      <div
+        className={cn("bg-white", maxBodyHeight && "overflow-y-auto")}
+        style={maxBodyHeight ? { maxHeight: maxBodyHeight } : undefined}
+      >
+        {children}
+      </div>
     </div>
   );
 }

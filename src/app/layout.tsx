@@ -110,7 +110,7 @@ export const metadata: Metadata = {
     title: "Enwis — Raqamli imtihon va baholash platformasi",
     description:
       "Maktablar, universitetlar va o'quv markazlari uchun zamonaviy imtihon platformasi.",
-    images: ["/twitter-image.png"],
+    images: ["/twitter-image.png"], 
   },
 
   icons: {
