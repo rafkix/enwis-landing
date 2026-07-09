@@ -96,7 +96,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "/og-image.png",
+        url: "https://www.enwis.uz/og-image.png",
         width: 1200,
         height: 630,
         alt: "Enwis",
@@ -110,7 +110,7 @@ export const metadata: Metadata = {
     title: "Enwis — Raqamli imtihon va baholash platformasi",
     description:
       "Maktablar, universitetlar va o'quv markazlari uchun zamonaviy imtihon platformasi.",
-    images: ["/twitter-image.png"], 
+    images: ["https://www.enwis.uz/twitter-image.png"], 
   },
 
   icons: {
