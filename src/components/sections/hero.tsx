@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, PlayCircle, CheckCircle2 } from "lucide-react";
+import { ArrowRight, PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MockupFrame } from "@/components/shared/mockup-frame";
 import {
-  TeacherDashboardMockup,
   StudentExamMockup,
 } from "@/components/shared/dashboard-mockups";
 import { AnimatedCounter } from "@/components/shared/animated-counter";

@@ -30,9 +30,7 @@ export function NewsContent() {
           className="mt-8 text-[clamp(2.75rem,6vw,5rem)] font-medium leading-[1.05] tracking-tight text-[var(--color-ink)]"
         >
           News & Updates
-          <span className="block text-[var(--color-deep)]">
-            coming soon.
-          </span>
+          <span className="block text-[var(--color-deep)]">coming soon.</span>
         </motion.h1>
 
         <motion.p
@@ -41,11 +39,10 @@ export function NewsContent() {
           transition={{ delay: 0.2 }}
           className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-slate)]"
         >
-          We're preparing a dedicated space for product announcements, release
-          notes, engineering stories, and everything happening across the Enwis
-          platform.
+          We&apos;re preparing a dedicated space for product announcements,
+          release notes, engineering stories, and everything happening across
+          the Enwis platform.
         </motion.p>
-
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}

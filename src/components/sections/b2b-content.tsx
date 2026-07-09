@@ -142,9 +142,9 @@ export function B2BContent() {
                   transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                   className="flex h-full flex-col rounded-[var(--radius-xl)] border border-[var(--color-line)] bg-white p-6"
                 >
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-volt)]/20">
+                  {/* <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-volt)]/20">
                     <Icon className="h-5 w-5 text-[var(--color-deep)]" />
-                  </div>
+                  </div> */}
                   <h3 className="font-display text-lg font-medium leading-snug text-[var(--color-ink)]">
                     {pillar.title}
                   </h3>
