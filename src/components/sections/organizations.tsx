@@ -8,7 +8,8 @@ import { ORGANIZATIONS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Organizations() {
-  const [active, setActive] = useState(ORGANIZATIONS[0].id);
+  type OrganizationId = (typeof ORGANIZATIONS)[number]["id"];
+  const [active, setActive] = useState<OrganizationId>(ORGANIZATIONS[0].id);
   const activeOrg = ORGANIZATIONS.find((o) => o.id === active) ?? ORGANIZATIONS[0];
 
   return (
