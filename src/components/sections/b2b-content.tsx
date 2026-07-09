@@ -10,6 +10,7 @@ import {
   Wallet,
   ShieldCheck,
   Check,
+  LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -21,7 +22,7 @@ import {
   B2B_ENTERPRISE_FEATURES,
 } from "@/lib/constants";
 
-const PILLAR_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+const PILLAR_ICONS: Record<"roi" | "time" | "cost" | "security", LucideIcon> = {
   roi: TrendingUp,
   time: Clock,
   cost: Wallet,
@@ -32,7 +33,7 @@ export function B2BContent() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[var(--color-deep-900)] pt-40 pb-20 lg:pt-48 lg:pb-24">
+      <section className="relative overflow-hidden bg-white pt-40 pb-20 lg:pt-48 lg:pb-24">
         <div
           aria-hidden
           className="pointer-events-none absolute -top-32 right-[-10%] h-[440px] w-[440px] rounded-full bg-[var(--color-volt)]/15 blur-[130px]"
@@ -42,7 +43,7 @@ export function B2BContent() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="pill-tag mb-7 border-white/15 bg-white/10 text-[var(--color-volt-light)]"
+            className="pill-tag mb-7 border-[var(--color-line)] bg-[var(--color-mist)] text-[var(--color-deep)]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-volt)]" />
             Tashkilotlar uchun
@@ -52,7 +53,7 @@ export function B2BContent() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[clamp(2.25rem,4.5vw,3.5rem)] font-medium leading-[1.1] text-white"
+            className="text-[clamp(2.25rem,4.5vw,3.5rem)] font-medium leading-[1.1] text-[var(--color-ink)]"
           >
             Muassasangiz miqyosida baholashni raqamlashtiring
           </motion.h1>
@@ -61,11 +62,11 @@ export function B2BContent() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-5 text-lg leading-relaxed text-white/60"
+            className="mt-5 text-lg leading-relaxed text-[var(--color-slate)]"
           >
-            Minglab talaba, yuzlab o&apos;qituvchi — bitta xavfsiz platformada. Enwis maktablar,
-            universitetlar va davlat tashkilotlariga vaqt, xarajat va nazoratni birgalikda
-            tejashga yordam beradi.
+            Minglab talaba, yuzlab o&apos;qituvchi — bitta xavfsiz platformada.
+            Enwis maktablar, universitetlar va davlat tashkilotlariga vaqt,
+            xarajat va nazoratni birgalikda tejashga yordam beradi.
           </motion.p>
 
           <motion.div
@@ -97,10 +98,10 @@ export function B2BContent() {
             transition={{ duration: 0.7, delay: 0.45 }}
             className="mt-14"
           >
-            <p className="mb-4 font-mono text-xs uppercase tracking-wide text-white/40">
+            <p className="mb-4 font-mono text-xs uppercase tracking-wide text-[var(--color-slate)]">
               Bizga ishonch bildirgan tashkilotlar
             </p>
-            <div className="opacity-70">
+            <div className="opacity-100">
               <LogoCloud tone="dark" />
             </div>
           </motion.div>
@@ -115,7 +116,9 @@ export function B2BContent() {
               <p className="font-display text-3xl font-medium text-[var(--color-ink)] lg:text-4xl">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </p>
-              <p className="mt-1 text-sm text-[var(--color-slate)]">{stat.label}</p>
+              <p className="mt-1 text-sm text-[var(--color-slate)]">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>
@@ -132,19 +135,24 @@ export function B2BContent() {
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {B2B_VALUE_PILLARS.map((pillar, i) => {
-              const Icon = PILLAR_ICONS[pillar.id];
+              const PillarIcon =
+                PILLAR_ICONS[pillar.id as keyof typeof PILLAR_ICONS];
               return (
                 <motion.div
                   key={pillar.id}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{
+                    duration: 0.5,
+                    delay: i * 0.08,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
                   className="flex h-full flex-col rounded-[var(--radius-xl)] border border-[var(--color-line)] bg-white p-6"
                 >
-                  {/* <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-volt)]/20">
-                    <Icon className="h-5 w-5 text-[var(--color-deep)]" />
-                  </div> */}
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-volt)]/20">
+                    <PillarIcon className="h-5 w-5 text-[var(--color-deep)]" />
+                  </div>
                   <h3 className="font-display text-lg font-medium leading-snug text-[var(--color-ink)]">
                     {pillar.title}
                   </h3>
@@ -181,8 +189,12 @@ export function B2BContent() {
                 <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
                   <Check className="h-4 w-4 text-[var(--color-volt-light)]" />
                 </div>
-                <h3 className="font-display text-base font-medium text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/50">{item.description}</p>
+                <h3 className="font-display text-base font-medium text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/50">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -208,8 +220,9 @@ export function B2BContent() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="mt-5 text-lg leading-relaxed text-[var(--color-slate)]"
           >
-            Demo bron qiling yoki qulay vaqtda uchrashuv belgilang — muassasangiz ehtiyojiga mos
-            reja va integratsiya bo&apos;yicha birga ko&apos;rib chiqamiz.
+            Demo bron qiling yoki qulay vaqtda uchrashuv belgilang —
+            muassasangiz ehtiyojiga mos reja va integratsiya bo&apos;yicha birga
+            ko&apos;rib chiqamiz.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
