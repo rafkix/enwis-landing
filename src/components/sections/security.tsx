@@ -20,7 +20,7 @@ export function Security() {
 
         <div className="mt-14 grid gap-px overflow-hidden rounded-[var(--radius-2xl)] bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
           {SECURITY_FEATURES.map((item, i) => {
-            const Icon = ICONS[i];
+            const Icon = ICONS[i] ?? ShieldCheck;;
             return (
               <motion.div
                 key={item.title}
