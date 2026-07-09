@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     path: "/",
   }),
 
-  metadataBase: new URL("https://enwis.uz"),
+  metadataBase: new URL("https://www.enwis.uz"),
 
   applicationName: "Enwis",
 
