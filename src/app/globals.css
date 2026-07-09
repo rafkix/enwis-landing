@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   ENWIS DESIGN SYSTEM
+   Signature: the three-pill mark from the logo, repeated as a structural
+   device (eyebrows, step markers, toggles, tags) instead of decoration.
+   ========================================================================== */
+
+@theme {
+  /* ---- Color: named brand tokens ---- */
+  --color-canvas: #ffffff;
+  --color-ink: #111827;
+  --color-ink-soft: #1f2937;
+  --color-slate: #64748b;
+  --color-slate-light: #94a3b8;
+  --color-mist: #f4f6f5;
+  --color-line: #e7eae8;
+
+  --color-deep: #0c2620;
+  --color-deep-800: #143c32;
+  --color-deep-900: #071512;
+
+  --color-volt: #8ae619;
+  --color-volt-light: #b9f53e;
+  --color-volt-dim: #d6f79e;
+
+  /* ---- Radius: pill-forward system ---- */
+  --radius-pill: 999px;
+  --radius-2xl: 2rem;
+  --radius-xl: 1.5rem;
+  --radius-lg: 1rem;
+
+  /* ---- Fonts ---- */
+  --font-display: var(--font-sora), "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
+
+  /* ---- Shadows: soft, layered, never harsh ---- */
+  --shadow-soft-sm: 0 2px 8px -2px rgb(17 24 39 / 0.06), 0 1px 2px -1px rgb(17 24 39 / 0.04);
+  --shadow-soft-md: 0 12px 32px -8px rgb(17 24 39 / 0.10), 0 4px 12px -4px rgb(17 24 39 / 0.06);
+  --shadow-soft-lg: 0 24px 64px -12px rgb(17 24 39 / 0.16), 0 8px 24px -8px rgb(17 24 39 / 0.08);
+  --shadow-volt-glow: 0 16px 48px -12px rgb(138 230 25 / 0.35);
+
+  /* ---- Easing ---- */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- Accordion animation (Radix data-state driven) ---- */
+  --animate-accordion-down: accordion-down 0.3s var(--ease-editorial);
+  --animate-accordion-up: accordion-up 0.3s var(--ease-editorial);
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+
+  ::selection {
+    background: var(--color-volt);
+    color: var(--color-deep-900);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-deep);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Eyebrow pill — the recurring brand mark, three bars implied by dot+line rhythm */
+  .pill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.875rem 0.375rem 0.625rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-mist);
+    border: 1px solid var(--color-line);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-deep);
+  }
+
+  .section-pad {
+    padding-top: clamp(4.5rem, 8vw, 8rem);
+    padding-bottom: clamp(4.5rem, 8vw, 8rem);
+  }
+
+  .container-editorial {
+    width: 100%;
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
