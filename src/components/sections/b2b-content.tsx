@@ -11,16 +11,21 @@ import {
   ShieldCheck,
   Check,
   LucideIcon,
+  BarChart3,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { AnimatedCounter } from "@/components/shared/animated-counter";
 import { LogoCloud } from "@/components/shared/logo-cloud";
+import { MockupFrame } from "@/components/shared/mockup-frame";
+import { AnalyticsMockup } from "@/components/shared/dashboard-mockups";
 import {
   B2B_STATS,
   B2B_VALUE_PILLARS,
   B2B_ENTERPRISE_FEATURES,
 } from "@/lib/constants";
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 const PILLAR_ICONS: Record<"roi" | "time" | "cost" | "security", LucideIcon> = {
   roi: TrendingUp,
@@ -34,77 +39,135 @@ export function B2BContent() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-white pt-40 pb-20 lg:pt-48 lg:pb-24">
+        {/* Hero sectiondagi bilan bir xil ambient background: ikkita glow blur + nuqtali grid */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-32 right-[-10%] h-[440px] w-[440px] rounded-full bg-[var(--color-volt)]/15 blur-[130px]"
+          className="pointer-events-none absolute -top-40 right-[-10%] h-[560px] w-[560px] rounded-full bg-[var(--color-volt)]/15 blur-[120px]"
         />
-        <div className="container-editorial relative max-w-2xl">
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="pill-tag mb-7 border-[var(--color-line)] bg-[var(--color-mist)] text-[var(--color-deep)]"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-volt)]" />
-            Tashkilotlar uchun
-          </motion.span>
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-40 left-[-15%] h-[420px] w-[420px] rounded-full bg-[var(--color-deep)]/10 blur-[100px]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)] bg-[linear-gradient(var(--color-line)_1px,transparent_1px),linear-gradient(90deg,var(--color-line)_1px,transparent_1px)] bg-[size:64px_64px] opacity-40"
+        />
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[clamp(2.25rem,4.5vw,3.5rem)] font-medium leading-[1.1] text-[var(--color-ink)]"
-          >
-            Muassasangiz miqyosida baholashni raqamlashtiring
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-5 text-lg leading-relaxed text-[var(--color-slate)]"
-          >
-            Minglab talaba, yuzlab o&apos;qituvchi — bitta xavfsiz platformada.
-            Enwis maktablar, universitetlar va davlat tashkilotlariga vaqt,
-            xarajat va nazoratni birgalikda tejashga yordam beradi.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-9 flex flex-wrap items-center gap-4"
-          >
-            <Button variant="primary" size="lg" asChild>
-              <Link href="/contact#demo">
-                Demo bron qilish <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-white/20 text-white hover:border-white/40"
-              asChild
+        <div className="container-editorial relative grid gap-16 lg:grid-cols-[1.05fr_1fr] lg:items-center">
+          <div>
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: EASE }}
+              className="pill-tag mb-7 border-[var(--color-line)] bg-[var(--color-mist)] text-[var(--color-deep)]"
             >
-              <Link href="/contact#demo">
-                <CalendarClock className="h-4 w-4" /> Uchrashuv belgilash
-              </Link>
-            </Button>
-          </motion.div>
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-volt)]" />
+              Tashkilotlar uchun
+            </motion.span>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.45 }}
-            className="mt-14"
-          >
-            <p className="mb-4 font-mono text-xs uppercase tracking-wide text-[var(--color-slate)]">
-              Bizga ishonch bildirgan tashkilotlar
-            </p>
-            <div className="opacity-100">
-              <LogoCloud tone="dark" />
-            </div>
-          </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
+              className="text-[clamp(2.25rem,4.5vw,3.5rem)] font-medium leading-[1.1] text-[var(--color-ink)]"
+            >
+              Muassasangiz miqyosida baholashni raqamlashtiring
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
+              className="mt-5 max-w-lg text-lg leading-relaxed text-[var(--color-slate)]"
+            >
+              Minglab talaba, yuzlab o&apos;qituvchi — bitta xavfsiz
+              platformada. Enwis maktablar, universitetlar va davlat
+              tashkilotlariga vaqt, xarajat va nazoratni birgalikda tejashga
+              yordam beradi.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
+              className="mt-9 flex flex-wrap items-center gap-4"
+            >
+              <Button variant="primary" size="lg" asChild>
+                <Link href="/contact#demo">
+                  Demo bron qilish <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link href="/contact#demo">
+                  <CalendarClock className="h-4 w-4" /> Uchrashuv belgilash
+                </Link>
+              </Button>
+            </motion.div>
+
+            {/* Compact mockup for mobile/tablet — the layered desktop version is hidden below lg */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.35, ease: EASE }}
+              className="mt-10 lg:hidden"
+            >
+              <MockupFrame path="app.enwis.uz/analytics" className="w-full">
+                <AnalyticsMockup />
+              </MockupFrame>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="mt-14"
+            >
+              <p className="mb-4 font-mono text-xs uppercase tracking-wide text-[var(--color-slate)]">
+                Bizga ishonch bildirgan tashkilotlar
+              </p>
+              <LogoCloud />
+            </motion.div>
+          </div>
+
+          <div className="relative hidden lg:block">
+            {/* Organization-wide analytics, primary card on top */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, x: -12, y: 12 }}
+              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
+              className="relative z-10"
+            >
+              <MockupFrame
+                path="b2b.enwis.uz/dashboard"
+                className="relative w-full max-w-[580px]"
+              >
+                <AnalyticsMockup />
+              </MockupFrame>
+            </motion.div>
+
+            {/* Floating scale badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 12, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.7, ease: EASE }}
+              className="absolute -bottom-6 left-6 z-20 flex items-center gap-2.5 rounded-2xl border border-[var(--color-line)] bg-white px-4 py-3 shadow-[var(--shadow-soft-lg)]"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-volt)]/20">
+                <BarChart3
+                  className="h-4 w-4 text-[var(--color-deep)]"
+                  strokeWidth={1.75}
+                />
+              </span>
+              <div>
+                <p className="text-xs font-medium text-[var(--color-ink)]">
+                  480+ muassasa
+                </p>
+                <p className="text-[11px] text-[var(--color-slate)]">
+                  Enwis'ga ishonch bildirdi
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -146,7 +209,7 @@ export function B2BContent() {
                   transition={{
                     duration: 0.5,
                     delay: i * 0.08,
-                    ease: [0.16, 1, 0.3, 1],
+                    ease: EASE,
                   }}
                   className="flex h-full flex-col rounded-[var(--radius-xl)] border border-[var(--color-line)] bg-white p-6"
                 >
@@ -208,7 +271,7 @@ export function B2BContent() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, ease: EASE }}
             className="font-display text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-tight text-[var(--color-ink)]"
           >
             Jamoangiz bilan gaplashishga tayyormiz
@@ -217,7 +280,7 @@ export function B2BContent() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
             className="mt-5 text-lg leading-relaxed text-[var(--color-slate)]"
           >
             Demo bron qiling yoki qulay vaqtda uchrashuv belgilang —
@@ -228,7 +291,7 @@ export function B2BContent() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             className="mt-8 flex flex-wrap items-center justify-center gap-4"
           >
             <Button variant="primary" size="lg" asChild>

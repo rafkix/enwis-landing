@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building2, Headset, MessageCircleQuestion, Mail, Phone, Clock } from "lucide-react";
+import {
+  Building2,
+  Headset,
+  MessageCircleQuestion,
+  Mail,
+  Phone,
+  Clock,
+} from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ContactForm } from "@/components/sections/contact-form";
 import { MapPlaceholder } from "@/components/sections/map-placeholder";
@@ -18,9 +25,18 @@ export function ContactContent() {
     <>
       {/* Intro */}
       <section className="relative overflow-hidden pt-40 pb-14 lg:pt-48 lg:pb-16">
+        {/* Hero sectiondagi bilan bir xil ambient background: ikkita glow blur + nuqtali grid */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-40 right-[-10%] h-[420px] w-[420px] rounded-full bg-[var(--color-volt)]/15 blur-[120px]"
+          className="pointer-events-none absolute -top-40 right-[-10%] h-[560px] w-[560px] rounded-full bg-[var(--color-volt)]/15 blur-[120px]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-40 left-[-15%] h-[420px] w-[420px] rounded-full bg-[var(--color-deep)]/10 blur-[100px]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)] bg-[linear-gradient(var(--color-line)_1px,transparent_1px),linear-gradient(90deg,var(--color-line)_1px,transparent_1px)] bg-[size:64px_64px] opacity-40"
         />
         <div className="container-editorial relative max-w-2xl">
           <motion.span
@@ -46,8 +62,8 @@ export function ContactContent() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="mt-5 max-w-lg text-lg leading-relaxed text-[var(--color-slate)]"
           >
-            Demo so&apos;rashdan tortib texnik yordamgacha — jamoamiz sizga tez orada javob
-            beradi.
+            Demo so&apos;rashdan tortib texnik yordamgacha — jamoamiz sizga tez
+            orada javob beradi.
           </motion.p>
         </div>
       </section>
@@ -56,7 +72,8 @@ export function ContactContent() {
       <section className="bg-white pb-20 lg:pb-28">
         <div className="container-editorial grid gap-5 sm:grid-cols-3">
           {CONTACT_CHANNELS.map((channel, i) => {
-            const Icon = CHANNEL_ICONS[channel.id as keyof typeof CHANNEL_ICONS];
+            const Icon =
+              CHANNEL_ICONS[channel.id as keyof typeof CHANNEL_ICONS];
             return (
               <motion.a
                 key={channel.id}
@@ -64,7 +81,11 @@ export function ContactContent() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                transition={{
+                  duration: 0.5,
+                  delay: i * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
                 className="group flex h-full flex-col rounded-[var(--radius-xl)] border border-[var(--color-line)] p-6 transition-colors hover:border-[var(--color-deep)]"
               >
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-mist)] transition-colors group-hover:bg-[var(--color-volt)]">
@@ -86,7 +107,10 @@ export function ContactContent() {
       </section>
 
       {/* Form + sidebar */}
-      <section id="demo" className="section-pad bg-[var(--color-mist)] scroll-mt-24">
+      <section
+        id="demo"
+        className="section-pad bg-[var(--color-mist)] scroll-mt-24"
+      >
         <div className="container-editorial grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-stretch">
           <div className="flex h-full flex-col">
             <SectionHeading
@@ -130,7 +154,10 @@ export function ContactContent() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-4 w-4 shrink-0 text-[var(--color-slate)]" />
-                  <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-[var(--color-deep)]">
+                  <a
+                    href={`mailto:${COMPANY_INFO.email}`}
+                    className="hover:text-[var(--color-deep)]"
+                  >
                     {COMPANY_INFO.email}
                   </a>
                 </li>

@@ -30,12 +30,11 @@ export const SOCIAL_LINKS = [
   { label: "Youtube", href: "https://youtube.com/@enwisapp" },
 ] as const;
 
-
 export const HERO_STATS = [
-  { value: 1200, suffix: "+", label: "Yaratilgan imtihonlar" },
-  { value: 86, suffix: "", label: "Ta'lim muassasalari" },
-  { value: 41000, suffix: "+", label: "Qamrab olingan talabalar" },
-  { value: 99.9, suffix: "%", label: "Uptime ishonchliligi" },
+  { value: 1, suffix: "+", label: "Yaratilgan imtihonlar" },
+  { value: 0, suffix: "", label: "Ta'lim muassasalari" },
+  { value: 0, suffix: "+", label: "Qamrab olingan talabalar" },
+  { value: 1, suffix: "%", label: "Uptime ishonchliligi" },
 ] as const;
 
 export const TRUSTED_ORGS = [
@@ -126,19 +125,23 @@ export const FEATURES = [
     items: [
       {
         title: "Savollar banki",
-        description: "Fan, mavzu va qiyinlik darajasi bo'yicha tartiblangan markaziy savollar ombori.",
+        description:
+          "Fan, mavzu va qiyinlik darajasi bo'yicha tartiblangan markaziy savollar ombori.",
       },
       {
         title: "Imtihon konstruktori",
-        description: "Sudrab tashlash orqali savol qo'shing, ballarni belgilang, vaqt chegarasini o'rnating.",
+        description:
+          "Sudrab tashlash orqali savol qo'shing, ballarni belgilang, vaqt chegarasini o'rnating.",
       },
       {
         title: "AI savol generatori",
-        description: "Mavzuni kiriting — AI bir necha soniyada tayyor variantlarni taklif qiladi. Ixtiyoriy.",
+        description:
+          "Mavzuni kiriting — AI bir necha soniyada tayyor variantlarni taklif qiladi. Ixtiyoriy.",
       },
       {
         title: "Qo'lda savol yuklash",
-        description: "Word yoki Excel fayldan mavjud savollaringizni bir zumda import qiling.",
+        description:
+          "Word yoki Excel fayldan mavjud savollaringizni bir zumda import qiling.",
       },
     ],
   },
@@ -147,19 +150,23 @@ export const FEATURES = [
     items: [
       {
         title: "Vaqt chegarasi",
-        description: "Har bir imtihon yoki har bir savol uchun alohida taymer o'rnatish imkoni.",
+        description:
+          "Har bir imtihon yoki har bir savol uchun alohida taymer o'rnatish imkoni.",
       },
       {
         title: "Savollarni aralashtirish",
-        description: "Har bir talabaga tasodifiy tartibda savollar ko'rsatiladi.",
+        description:
+          "Har bir talabaga tasodifiy tartibda savollar ko'rsatiladi.",
       },
       {
         title: "Javoblarni aralashtirish",
-        description: "Variantlar tartibi ham har safar o'zgaradi — ko'chirish imkoniyati yo'qqa chiqadi.",
+        description:
+          "Variantlar tartibi ham har safar o'zgaradi — ko'chirish imkoniyati yo'qqa chiqadi.",
       },
       {
         title: "Bildirishnomalar",
-        description: "Imtihon boshlanishi, yakunlanishi va natijalar haqida avtomatik xabarnoma.",
+        description:
+          "Imtihon boshlanishi, yakunlanishi va natijalar haqida avtomatik xabarnoma.",
       },
     ],
   },
@@ -168,15 +175,18 @@ export const FEATURES = [
     items: [
       {
         title: "Avtomatik baholash",
-        description: "Yopiq turdagi savollar soniyada baholanadi, xatolik ehtimoli nolga tushadi.",
+        description:
+          "Yopiq turdagi savollar soniyada baholanadi, xatolik ehtimoli nolga tushadi.",
       },
       {
         title: "Tahlil va hisobotlar",
-        description: "Guruh, fan yoki individual talaba kesimida chuqur statistik hisobot.",
+        description:
+          "Guruh, fan yoki individual talaba kesimida chuqur statistik hisobot.",
       },
       {
         title: "Sertifikatlar",
-        description: "Muvaffaqiyatli yakunlangan kurslar uchun avtomatik generatsiya qilinadigan sertifikat.",
+        description:
+          "Muvaffaqiyatli yakunlangan kurslar uchun avtomatik generatsiya qilinadigan sertifikat.",
       },
     ],
   },
@@ -185,11 +195,13 @@ export const FEATURES = [
     items: [
       {
         title: "Xavfsizlik",
-        description: "Faoliyat jurnali, qurilmani aniqlash va shifrlangan bulut saqlash.",
+        description:
+          "Faoliyat jurnali, qurilmani aniqlash va shifrlangan bulut saqlash.",
       },
       {
         title: "REST API",
-        description: "Enwis'ni mavjud tizimingiz — kunday, ERP yoki LMS bilan integratsiya qiling.",
+        description:
+          "Enwis'ni mavjud tizimingiz — kunday, ERP yoki LMS bilan integratsiya qiling.",
       },
     ],
   },
@@ -202,7 +214,11 @@ export const ORGANIZATIONS = [
     headline: "O'z sinfingiz uchun professional imtihon tizimi",
     description:
       "Ro'yxatdan o'ting va birinchi imtihoningizni bugunoq yarating — kredit karta talab qilinmaydi.",
-    points: ["Cheksiz talabalar", "Tayyor savollar banki", "Bepul boshlang'ich reja"],
+    points: [
+      "Cheksiz talabalar",
+      "Tayyor savollar banki",
+      "Bepul boshlang'ich reja",
+    ],
   },
   {
     id: "school",
@@ -210,7 +226,11 @@ export const ORGANIZATIONS = [
     headline: "Barcha sinflar, bitta boshqaruv paneli",
     description:
       "Fan o'qituvchilarini birlashtiring, chorak nazoratlarini markazlashtiring, ota-onalarga hisobot bering.",
-    points: ["Ko'p sinf boshqaruvi", "Direktor uchun umumiy statistika", "Ota-ona hisobotlari"],
+    points: [
+      "Ko'p sinf boshqaruvi",
+      "Direktor uchun umumiy statistika",
+      "Ota-ona hisobotlari",
+    ],
   },
   {
     id: "university",
@@ -218,7 +238,11 @@ export const ORGANIZATIONS = [
     headline: "Fakultet miqyosida standartlashtirilgan baholash",
     description:
       "Minglab talaba, yuzlab fan — barchasi bir xil xavfsizlik va sifat standarti bilan boshqariladi.",
-    points: ["Fakultetlararo hisobotlar", "Sessiya uchun ommaviy imtihon", "Yuqori xavfsizlik darajasi"],
+    points: [
+      "Fakultetlararo hisobotlar",
+      "Sessiya uchun ommaviy imtihon",
+      "Yuqori xavfsizlik darajasi",
+    ],
   },
   {
     id: "center",
@@ -226,7 +250,11 @@ export const ORGANIZATIONS = [
     headline: "Har bir kurs guruhi uchun aniq progress",
     description:
       "Kirish testidan yakuniy sertifikatgacha — o'quvchi yo'lini boshidan oxirigacha kuzating.",
-    points: ["Guruh bo'yicha progress", "Avtomatik sertifikatlash", "Marketing uchun natijalar"],
+    points: [
+      "Guruh bo'yicha progress",
+      "Avtomatik sertifikatlash",
+      "Marketing uchun natijalar",
+    ],
   },
   {
     id: "enterprise",
@@ -239,75 +267,148 @@ export const ORGANIZATIONS = [
 ] as const;
 
 export const SECURITY_FEATURES = [
-  { title: "Savollarni aralashtirish", description: "Har bir talaba uchun individual savol tartibi." },
-  { title: "Javoblarni aralashtirish", description: "Variantlar tartibi har safar tasodifiy o'zgaradi." },
-  { title: "Faoliyat jurnali", description: "Har bir harakat — kirish, chiqish, javob — vaqt belgisi bilan qayd etiladi." },
-  { title: "Face ID tayyorligi", description: "Yuzni tanish orqali identifikatsiya uchun infratuzilma tayyor." },
-  { title: "Qurilmani aniqlash", description: "Bir hisobdan bir nechta qurilmadan kirish avtomatik aniqlanadi." },
-  { title: "Xavfsiz bulut", description: "Barcha ma'lumotlar shifrlangan holda, zaxira nusxalari bilan saqlanadi." },
+  {
+    title: "Savollarni aralashtirish",
+    description: "Har bir talaba uchun individual savol tartibi.",
+  },
+  {
+    title: "Javoblarni aralashtirish",
+    description: "Variantlar tartibi har safar tasodifiy o'zgaradi.",
+  },
+  {
+    title: "Faoliyat jurnali",
+    description:
+      "Har bir harakat — kirish, chiqish, javob — vaqt belgisi bilan qayd etiladi.",
+  },
+  {
+    title: "Face ID tayyorligi",
+    description:
+      "Yuzni tanish orqali identifikatsiya uchun infratuzilma tayyor.",
+  },
+  {
+    title: "Qurilmani aniqlash",
+    description:
+      "Bir hisobdan bir nechta qurilmadan kirish avtomatik aniqlanadi.",
+  },
+  {
+    title: "Xavfsiz bulut",
+    description:
+      "Barcha ma'lumotlar shifrlangan holda, zaxira nusxalari bilan saqlanadi.",
+  },
 ] as const;
 
 export const PRICING_PLANS = [
   {
-    id: "teacher",
-    name: "O'qituvchi",
+    id: "free",
+    name: "Free",
     monthly: 0,
     yearly: 0,
-    description: "Yakka o'qituvchilar uchun, cheksiz muddatga bepul.",
+    description: "Platformani sinab ko'rish va shaxsiy foydalanish uchun.",
     features: [
-      "1 ta o'qituvchi hisobi",
-      "Cheksiz talabalar",
-      "Savollar banki",
+      "5 tagacha test yaratish",
+      "Har bir testni 30 ta ishtirokchi ishlashi mumkin",
       "Avtomatik baholash",
-      "Asosiy tahlil",
+      "Asosiy statistika",
+      "Testni havola orqali ulashish",
+      "Community qo'llab-quvvatlash",
     ],
     cta: "Bepul boshlash",
     highlighted: false,
+    promoEligible: false,
   },
+
   {
-    id: "organization",
-    name: "Tashkilot",
-    monthly: 890000,
-    yearly: 712000,
-    description: "Maktab, o'quv markazi va universitetlar uchun.",
+    id: "pro",
+    name: "Pro",
+    monthly: 69000,
+    yearly: 662400,
+    description: "O'qituvchilar va faol test yaratuvchilar uchun.",
     features: [
-      "Cheksiz o'qituvchilar",
-      "Ko'p sinf/guruh boshqaruvi",
+      "Cheksiz test yaratish",
+      "Har bir test uchun 500 tagacha ishtirokchi",
       "AI savol generatori",
-      "Chuqur tahlil va hisobotlar",
-      "Sertifikatlar",
-      "Ustuvor qo'llab-quvvatlash",
+      "Savollar banki",
+      "Avtomatik baholash",
+      "Batafsil statistika",
+      "Guruhlarni boshqarish",
+      "Email qo'llab-quvvatlash",
     ],
-    cta: "Demo so'rash",
+    cta: "Pro tarifini tanlash",
     highlighted: true,
+    promoEligible: true,
   },
+
   {
-    id: "enterprise",
-    name: "Enterprise",
-    monthly: null,
-    yearly: null,
-    description: "Davlat va yirik korporativ tashkilotlar uchun maxsus shartlar.",
+    id: "premium",
+    name: "Premium",
+    monthly: 119000,
+    yearly: 1142400,
+    description: "Professional o'qituvchilar va ta'lim markazlari uchun.",
     features: [
-      "Maxsus SLA kafolati",
-      "SSO va maxsus domen",
-      "REST API to'liq huquq bilan",
-      "Shaxsiy hisob menejeri",
-      "Maxsus infratuzilma",
+      "Pro tarifidagi barcha imkoniyatlar",
+      "Cheksiz test yaratish",
+      "Cheksiz ishtirokchilar",
+      "AI savol generatori",
+      "AI natijalar tahlili",
+      "Sertifikat yaratish",
+      "Prioritet texnik yordam",
+      "Yangi funksiyalarga erta kirish",
     ],
-    cta: "Aloqaga chiqish",
+    cta: "Premium tarifini tanlash",
     highlighted: false,
+    promoEligible: true,
   },
 ] as const;
 
 export const PRICING_COMPARISON_ROWS = [
-  { feature: "Savollar banki", teacher: true, organization: true, enterprise: true },
-  { feature: "Avtomatik baholash", teacher: true, organization: true, enterprise: true },
-  { feature: "AI savol generatori", teacher: false, organization: true, enterprise: true },
-  { feature: "Ko'p foydalanuvchi boshqaruvi", teacher: false, organization: true, enterprise: true },
-  { feature: "Chuqur tahlil va hisobotlar", teacher: false, organization: true, enterprise: true },
-  { feature: "REST API", teacher: false, organization: false, enterprise: true },
-  { feature: "SSO va maxsus domen", teacher: false, organization: false, enterprise: true },
-  { feature: "Shaxsiy hisob menejeri", teacher: false, organization: false, enterprise: true },
+  {
+    feature: "Savollar banki",
+    teacher: true,
+    organization: true,
+    enterprise: true,
+  },
+  {
+    feature: "Avtomatik baholash",
+    teacher: true,
+    organization: true,
+    enterprise: true,
+  },
+  {
+    feature: "AI savol generatori",
+    teacher: false,
+    organization: true,
+    enterprise: true,
+  },
+  {
+    feature: "Ko'p foydalanuvchi boshqaruvi",
+    teacher: false,
+    organization: true,
+    enterprise: true,
+  },
+  {
+    feature: "Chuqur tahlil va hisobotlar",
+    teacher: false,
+    organization: true,
+    enterprise: true,
+  },
+  {
+    feature: "REST API",
+    teacher: false,
+    organization: false,
+    enterprise: true,
+  },
+  {
+    feature: "SSO va maxsus domen",
+    teacher: false,
+    organization: false,
+    enterprise: true,
+  },
+  {
+    feature: "Shaxsiy hisob menejeri",
+    teacher: false,
+    organization: false,
+    enterprise: true,
+  },
 ] as const;
 
 export const TESTIMONIALS = [
@@ -435,19 +536,22 @@ export const CONTACT_CHANNELS = [
   {
     id: "sales",
     title: "Sotuv bo'limi",
-    description: "Tashkilotingiz uchun reja, narx yoki enterprise shartlar bo'yicha savollar.",
+    description:
+      "Tashkilotingiz uchun reja, narx yoki enterprise shartlar bo'yicha savollar.",
     email: "sales@enwis.uz",
   },
   {
     id: "support",
     title: "Texnik yordam",
-    description: "Mavjud hisobingiz, imtihonlar yoki texnik muammolar bo'yicha yordam.",
+    description:
+      "Mavjud hisobingiz, imtihonlar yoki texnik muammolar bo'yicha yordam.",
     email: "support@enwis.uz",
   },
   {
     id: "general",
     title: "Umumiy savollar",
-    description: "Boshqa har qanday savol, taklif yoki hamkorlik bo'yicha murojaat.",
+    description:
+      "Boshqa har qanday savol, taklif yoki hamkorlik bo'yicha murojaat.",
     email: "info.enwis@gmail.com",
   },
 ] as const;
@@ -502,10 +606,34 @@ export const B2B_VALUE_PILLARS = [
 ] as const;
 
 export const B2B_ENTERPRISE_FEATURES = [
-  { title: "SSO integratsiyasi", description: "Xodimlaringiz mavjud korporativ hisobi orqali bir marta kirish imkoniyatiga ega bo'ladi." },
-  { title: "Maxsus domen", description: "Platformani o'z brendingiz ostida — masalan, exam.muassasa.uz — ishga tushiring." },
-  { title: "To'liq huquqli REST API", description: "Enwis'ni mavjud LMS, ERP yoki ichki tizimingiz bilan chuqur integratsiya qiling." },
-  { title: "SLA kafolati", description: "Kelishilgan uptime va javob berish vaqti bo'yicha rasmiy kafolat." },
-  { title: "Shaxsiy hisob menejeri", description: "Joriy etishdan kundalik foydalanishgacha sizga biriktirilgan mutaxassis yordam beradi." },
-  { title: "Maxsus infratuzilma", description: "Talab bo'yicha alohida joylashtirish va kengaytirilgan resurslar imkoniyati." },
+  {
+    title: "SSO integratsiyasi",
+    description:
+      "Xodimlaringiz mavjud korporativ hisobi orqali bir marta kirish imkoniyatiga ega bo'ladi.",
+  },
+  {
+    title: "Maxsus domen",
+    description:
+      "Platformani o'z brendingiz ostida — masalan, exam.muassasa.uz — ishga tushiring.",
+  },
+  {
+    title: "To'liq huquqli REST API",
+    description:
+      "Enwis'ni mavjud LMS, ERP yoki ichki tizimingiz bilan chuqur integratsiya qiling.",
+  },
+  {
+    title: "SLA kafolati",
+    description:
+      "Kelishilgan uptime va javob berish vaqti bo'yicha rasmiy kafolat.",
+  },
+  {
+    title: "Shaxsiy hisob menejeri",
+    description:
+      "Joriy etishdan kundalik foydalanishgacha sizga biriktirilgan mutaxassis yordam beradi.",
+  },
+  {
+    title: "Maxsus infratuzilma",
+    description:
+      "Talab bo'yicha alohida joylashtirish va kengaytirilgan resurslar imkoniyati.",
+  },
 ] as const;

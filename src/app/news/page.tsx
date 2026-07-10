@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
-import { NewsContent } from "@/components/sections/news-content";
+import { NewsListContent } from "@/components/news/news-list-content";
 
 export const metadata: Metadata = buildMetadata({
   title: "Yangiliklar",
   description:
-    "Enwis platformasidagi mahsulot yangilanishlari, yangi funksiyalar, blog maqolalari va rasmiy e'lonlarni shu yerda kuzatib boring.",
+    "Enwis mahsulot yangilanishlari, xavfsizlik e'lonlari va platforma haqidagi so'nggi yangiliklar.",
   path: "/news",
 });
 
 export default function NewsPage() {
-  return <NewsContent />;
+  return <NewsListContent /> ;
 }

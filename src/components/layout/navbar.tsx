@@ -3,15 +3,22 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, APP_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+// Pages whose hero section sits on a dark background — the navbar needs
+// light text/logo here until the user scrolls past it onto a white bg.
+// const DARK_HERO_PATHS = ["/b2b"];
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  // const isDarkHero = DARK_HERO_PATHS.includes(pathname) && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -30,12 +37,25 @@ export function Navbar() {
         "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-[var(--ease-editorial)]",
         scrolled
           ? "border-b border-[var(--color-line)] bg-white/80 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+          : "border-b border-transparent bg-transparent",
       )}
     >
       <div className="container-editorial flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center" aria-label="Enwis — bosh sahifa">
-          <Image src="/header.png" alt="Enwis" width={138} height={42} priority className="h-15 w-auto" />
+        <Link
+          href="/"
+          className="flex items-center"
+          aria-label="Enwis — bosh sahifa"
+        >
+          <Image
+            src="/header.png"
+            alt="Enwis"
+            width={128}
+            height={32}
+            priority
+            className={cn(
+              "h-12 w-auto transition-all duration-300",
+            )}
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
@@ -43,7 +63,9 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-[0.925rem] text-[var(--color-ink)]/80 transition-colors hover:text-[var(--color-ink)]"
+              className={cn(
+                "text-[0.925rem] transition-colors",
+              )}
             >
               {link.label}
             </Link>
@@ -51,7 +73,11 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button variant="outline" size="sm" asChild>
+          <Button
+            variant="outline"
+            size="sm"
+            asChild
+          >
             <Link href="/contact#demo">Demo ko&apos;rish</Link>
           </Button>
           <Button variant="primary" size="sm" asChild>
@@ -64,10 +90,16 @@ export function Navbar() {
         <button
           type="button"
           aria-label="Menyuni ochish"
-          className="flex h-10 w-10 items-center justify-center rounded-full lg:hidden"
+          className={cn(
+            "flex h-10 w-10 items-center justify-center rounded-full lg:hidden",
+          )}
           onClick={() => setMobileOpen((v) => !v)}
         >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {mobileOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
         </button>
       </div>
 
