@@ -86,7 +86,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.35, ease: EASE }}
             className="mt-10 lg:hidden"
           >
-            <MockupFrame path="app.enwis.uz/exam" className="w-full">
+            <MockupFrame path="test.enwis.uz/exam" className="w-full">
               <StudentExamMockup />
             </MockupFrame>
           </motion.div>

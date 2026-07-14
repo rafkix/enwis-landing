@@ -12,7 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const TABS = [
   { value: "teacher", label: "O'qituvchi paneli", path: "app.enwis.uz/dashboard" },
-  { value: "student", label: "Talaba interfeysi", path: "app.enwis.uz/exam" },
+  { value: "student", label: "Talaba interfeysi", path: "test.enwis.uz/exam" },
   { value: "analytics", label: "Tahlil", path: "app.enwis.uz/analytics" },
 ] as const;
 

@@ -101,7 +101,7 @@ export function AboutContent() {
               transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
               className="absolute -right-8 -top-8 z-0 w-[300px] rotate-[4deg] opacity-90"
             >
-              <MockupFrame path="app.enwis.uz/exam" className="w-full">
+              <MockupFrame path="test.enwis.uz/exam" className="w-full">
                 <StudentExamMockup />
               </MockupFrame>
             </motion.div>
